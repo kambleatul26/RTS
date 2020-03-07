@@ -1,0 +1,62 @@
+<ion-content class="ion-padding" style="vertical-align: middle">
+  <ion-img
+    class="ion-padding-vertical ion-margin-vertical"
+    src="https://upload.wikimedia.org/wikipedia/en/thumb/4/45/IRCTC_Logo.svg/1200px-IRCTC_Logo.svg.png"
+    style="height: 30vh"
+  ></ion-img>
+
+  <ion-list class="ion-padding">
+    <ion-item lines="inset">
+      <ion-label color="primary" position="floating">User ID</ion-label>
+      <ion-input
+        type="number"
+        autocorrect="on"
+        autofocus="on"
+        clearInput="true"
+        clearOnEdit="true"
+        color="primary"
+        inputmode="text"
+        required="true"
+      ></ion-input>
+      <ion-icon
+        size="large"
+        class="ion-align-self-center"
+        name="person"
+        color="primary"
+        slot="start"
+      ></ion-icon>
+    </ion-item>
+
+    <ion-item lines="inset">
+      <ion-label color="primary" position="floating">Password</ion-label>
+      <ion-input
+        type="password"
+        autocorrect="on"
+        autofocus="on"
+        clearInput="true"
+        clearOnEdit="true"
+        color="primary"
+        inputmode="text"
+        required="true"
+      ></ion-input>
+      <ion-icon
+        size="large"
+        class="ion-align-self-center"
+        name="key"
+        color="primary"
+        slot="start"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-row style="padding-top: 5vh;" class="ion-padding">
+    <ion-col size="6" class="ion-align-self-center ion-text-center">
+      <ion-text class="signIn">Sign In</ion-text>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="login()" class="goButton ion-text-center">
+        <ion-icon name="chevron-forward-circle-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

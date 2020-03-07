@@ -1,5 +1,7 @@
 {
   "name": "RTS",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

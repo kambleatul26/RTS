@@ -1,0 +1,27 @@
+<ion-split-pane contentId='tc'>
+  <ion-menu contentId='tc' type="overlay">
+    <ion-content class="ion-margin ion-padding-vertical">
+      <div class="ion-margin-start ion-padding-start ion-margin-vertical ion-padding-bottom">
+        <h2>TC Dash</h2>
+      </div>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+        <ion-item lines='none' [routerDirection]="'root'" [routerLink]="[p.url]" [class.active-item]='selectedPath === p.url' detail>
+            <ion-label>{{ p.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <!-- <ion-button class="ion-margin" size='block' (click)="logout()">LOGOUT</ion-button> -->
+    </ion-content>
+    <ion-footer class="ion-padding-bottom">
+      <ion-item style="--background: transparent" lines="none">
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12">
+              <ion-button color='primary' size='block' style="border-radius: 50%" (click)='toPASS()'>PASS DASH</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id='tc' main></ion-router-outlet>
+</ion-split-pane>

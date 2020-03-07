@@ -1,0 +1,15 @@
+ion-card-subtitle {
+    color: var(--ion-color-dark) !important;
+    font-size: large;
+}
+
+ion-card {
+    height: 100%;
+    --background: white;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+ion-col {
+    padding-bottom: 2vh;
+}
