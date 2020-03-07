@@ -37,4 +37,10 @@ export class DataService {
 
     await alert.present();
   }
+
+  x() {
+    const XURL = this.config.getURL();
+
+    
+  }
 }

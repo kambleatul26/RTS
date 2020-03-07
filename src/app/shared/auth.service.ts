@@ -62,15 +62,17 @@ export class AuthService {
     // console.log(credentials);
     const uid = credentials.uid;
     const password = credentials.pass;
+    
+    this.router.navigate(['tc-dashboard']);
 
-    const loginURL = this.config.getURL() + 'user/login';
-    return this.http.post(loginURL, {
-      uid,
-      password
-    }).pipe(take(1), map(value => {
-      console.log(value);
-      return value;
-    }));
+    // const loginURL = this.config.getURL() + 'user/login';
+    // return this.http.post(loginURL, {
+    //   uid,
+    //   password
+    // }).pipe(take(1), map(value => {
+    //   console.log(value);
+    //   return value;
+    // }));
 
   }
 

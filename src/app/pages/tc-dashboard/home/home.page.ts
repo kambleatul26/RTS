@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,11 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  constructor(private authService: AuthService, private alertCtrl: AlertController) { }
+  constructor(
+    private authService: AuthService,
+    private alertCtrl: AlertController,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -34,7 +39,13 @@ export class HomePage implements OnInit {
           }
         ]
       });
-  
+
     await alert.present();
+  }
+
+
+  onTrainClick() {
+    console.log('sss');
+    this.router.navigate(['tc-dashboard/menu/train-details']);
   }
 }

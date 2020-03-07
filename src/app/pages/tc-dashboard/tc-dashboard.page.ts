@@ -21,7 +21,7 @@ export class TCDashboardPage implements OnInit {
     {
       title: 'TC Home',
       url: '',
-      icon: 'home'
+      icon: 'home' 
     },
     {
       title: 'Page 1',
@@ -34,7 +34,7 @@ export class TCDashboardPage implements OnInit {
 
   constructor(
     private router: Router,
-    private navCtrl:NavController,
+    private navCtrl: NavController,
     private authService: AuthService,
     private storage: Storage,
     private plt: Platform
