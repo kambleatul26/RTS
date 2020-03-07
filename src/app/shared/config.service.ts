@@ -8,7 +8,8 @@ export class ConfigService {
   env = 'dev';
   // env = 'prod';
 
-  dev = 'http://8360707c.ngrok.io/';
+  // dev = 'http://8360707c.ngrok.io/';
+  dev = 'http://manassinkar-lexs.localhost.run';
   prod = 'https://splacer-server.herokuapp.com/';
 
   constructor() { }
