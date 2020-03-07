@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./train-details.page.scss'],
 })
 export class TrainDetailsPage implements OnInit {
-
+  is = [];
   constructor() { }
 
   ngOnInit() {
+    for (let i = 1; i < 20; i++) {
+      this.is.push(i);
+    }
   }
-
 }

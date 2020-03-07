@@ -38,9 +38,8 @@ export class DataService {
     await alert.present();
   }
 
-  x() {
+  getTrains() {
     const XURL = this.config.getURL();
-
-    
+    return this.http.get(XURL);
   }
 }
