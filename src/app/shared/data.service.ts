@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { LoadingController, AlertController, ToastController } from '@ionic/angular';
 
@@ -39,12 +39,22 @@ export class DataService {
   }
 
   getTrains() {
-    const XURL = this.config.getURL();
+    const XURL = this.config.getURL() + 'train/getAllTrains';
     return this.http.get(XURL);
   }
 
   getBookingsPASS() {
     const BookingURL = this.config.getURL() + 'booking/getSelfBookings';
     return this.http.get(BookingURL);
+  }
+
+  getTrainDetail(id) {
+    let params = new HttpParams();
+    params = params.append('trainID', id);
+    console.log(id);
+    const XURL = this.config.getURL() + 'train/getTrain';
+    return this.http.get(XURL, {
+      params : params
+    });
   }
 }

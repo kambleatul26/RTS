@@ -51,8 +51,11 @@ export class HomePage implements OnInit {
 
 
 
-  onTrainClick() {
-    console.log('sss');
-    this.router.navigate(['tc-dashboard/menu/train-details']);
+  onTrainClick(trainId) {
+    this.router.navigate(['tc-dashboard/menu/train-details'], {
+      queryParams: {
+        trainId
+      }
+    });
   }
 }

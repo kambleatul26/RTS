@@ -12,35 +12,15 @@
   <ion-grid>
     <ion-row>
       <ion-col size="4">
-        <ion-button *ngFor="let i of is" expand="block" fill="outline">C-Num</ion-button>
+        <h3>Coaches</h3>
+        <ion-button *ngFor="let coach of coaches" expand="block" fill="outline" (click)="onSelectCoach(coach.name)">{{coach.name}}</ion-button>
       </ion-col>
-
-
-
-
-
-      <ion-col size="8" style="padding:2em">
-        <ion-grid>
+      <ion-col *ngIf="coachData && coachData[0]" size="8" style="padding:2em">
+        <h3>Coach {{ coachData[0].name }}</h3>
           <ion-row>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-            <ion-col style="border : 1px solid black">ion</ion-col>
+            <ion-col size='3' *ngFor="let seat of coachData[0].seats" style="border: 1px solid black;" [ngStyle]="{'background-color': seat.occupied ? 'green' : 'yellow'}">{{ seat.number }}</ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-            <ion-col style="border : 1px solid black">ion</ion-col>
-          </ion-row>
-        </ion-grid>
       </ion-col>
-
-
-
     </ion-row>
   </ion-grid>
 
