@@ -14,7 +14,7 @@ import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { FCM } from '@ionic-native/fcm/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +35,7 @@ import { FCM } from '@ionic-native/fcm/ngx';
       useClass: TokenInterceptorService,
       multi: true
     },
-    FCM,
+    Geolocation,
   ],
   bootstrap: [AppComponent]
 })

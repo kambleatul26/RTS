@@ -11,6 +11,7 @@
       <ion-input
         type="number"
         autocorrect="on"
+        [(ngModel)]="credentials.aadhaar"
         autofocus="on"
         clearInput="true"
         clearOnEdit="true"
@@ -33,6 +34,7 @@
         type="password"
         autocorrect="on"
         autofocus="on"
+        [(ngModel)]="credentials.pass"
         clearInput="true"
         clearOnEdit="true"
         color="primary"

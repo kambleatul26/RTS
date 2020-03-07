@@ -6,7 +6,6 @@ import { filter, take, map } from 'rxjs/operators';
 import { ConfigService } from './config.service';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
-import { FCM } from '@ionic-native/fcm/ngx';
 
 const TOKEN_KEY = 'auth-token';
 
@@ -22,21 +21,12 @@ export class AuthService {
     private router: Router,
     private config: ConfigService,
     private http: HttpClient,
-    private fcm: FCM,
     private dataService: DataService
   ) {
     // RETURN VALUES THAT ARE NOT NULL (TO AVOID FIRST NULL VALUE)
     this.user = this.authenticationState.asObservable().pipe(
       filter(response => response)
     );
-  }
-
-  subscribeToTPC() {
-    this.fcm.subscribeToTopic('TPC');
-  }
-
-  unSubscribeToTPC() {
-    this.fcm.unsubscribeFromTopic('TPC');
   }
 
   loadUser() {
@@ -60,12 +50,12 @@ export class AuthService {
 
   login(credentials) {
     // console.log(credentials);
-    const uid = credentials.uid;
+    const aadhaarNo = credentials.aadhaar;
     const password = credentials.pass;
 
     const loginURL = this.config.getURL() + 'user/login';
     return this.http.post(loginURL, {
-      uid,
+      aadhaarNo,
       password
     }).pipe(take(1), map(value => {
       console.log(value);

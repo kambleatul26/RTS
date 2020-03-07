@@ -14,8 +14,8 @@ const TOKEN_KEY = 'auth-token';
 export class LoginPage implements OnInit {
 
   credentials = {
-    id: null,
-    pass: null
+    aadhaar: 674611536346,
+    pass: 'manas12345'
   };
 
   constructor(
@@ -27,13 +27,6 @@ export class LoginPage implements OnInit {
     // this.authService.logout();
   }
 
-  ionViewWillEnter() {
-    this.credentials = {
-      id: null,
-      pass: null
-    };
-  }
-
   ngOnInit() {
   }
 
@@ -41,21 +34,21 @@ export class LoginPage implements OnInit {
 
     this.data.presentLoading('Logging In...');
 
-    let user = { uid: this.credentials.id , role: 'STUDENT', token: '', tpc: false, student: true };
+    let user = { uid: this.credentials.aadhaar , role: 'PASS', token: '', tc: false, pass: true };
 
     this.authService.login(this.credentials)
       .subscribe(res => {
         setTimeout(() => {
           this.data.loading.dismiss();
           user.token = res['token']
-          if(res['tpc'] == true) {
-            user.tpc = true;
+          if(res['TC'] == true) {
+            user.tc = true;
           }
   
           this.authService.authenticationState.next(user);
   
           this.storage.set(TOKEN_KEY, user);
-          this.router.navigateByUrl('/passenger-dashoard');
+          this.router.navigate(['passenger-dashboard']);
         }, 100);
       }, err => {
         setTimeout(() => {

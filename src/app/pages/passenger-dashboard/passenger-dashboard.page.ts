@@ -20,12 +20,17 @@ export class PassengerDashboardPage implements OnInit {
   public appPages = [
     {
       title: 'Pass Home',
-      url: '',
+      url: 'home',
       icon: 'home'
     },
     {
-      title: 'Page 1',
-      url: '',
+      title: 'Trains',
+      url: 'trains',
+      icon: 'home'
+    },
+    {
+      title: 'trainDetails',
+      url: 'train-details',
       icon: 'home'
     },
   ];
