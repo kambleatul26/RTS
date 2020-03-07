@@ -57,4 +57,12 @@ export class DataService {
       params : params
     });
   }
+
+
+  updateLocation(body) {
+    const updateURL = this.config.getURL() + 'train/updateTrainLocation';
+    this.http.post(updateURL, body).subscribe(data => {
+      console.log(data);
+    });
+  }
 }
