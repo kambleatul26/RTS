@@ -1,12 +1,28 @@
 <ion-header>
   <ion-toolbar color='dark'>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button defaultHref='passenger-dashboard/menu/trains'></ion-back-button>
     </ion-buttons>
     <ion-title>train-details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <h3 class="ion-padding ion-text-center">SELECT YOUR SEAT</h3>
+
+  <ion-list>
+    <ion-item *ngFor="let s of checked">
+      <p>User - {{ s.passenger }}, {{ s.seat }}</p>
+      <ion-checkbox [disabled]='flag && s.age > 18' (ionChange)='check()' [(ngModel)]="s.checked" color="dark" slot="end"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-button class="ion-text-center" size='block' color='primary' (click)="reset()">RESET</ion-button>
+  <ion-button class="ion-text-center" size='block' color='primary' (click)="submit()">SUBMIT</ion-button>
+
+  <p class="ion-padding-top">1. You can select only one seat (your seat).<br>
+    2. If children under 18, you can select their seat.<br>
+    3. Once you occupy seat, your co-passengers will get the option to occupy theirs.</p>
 
 </ion-content>

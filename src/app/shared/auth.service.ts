@@ -37,11 +37,11 @@ export class AuthService {
           console.log(usr);
           this.authenticationState.next(usr);
           // // console.log(usr);
-          // if (usr.role == 'STUDENT') {
-          //   this.router.navigate(['student-dashoard/menu/profile']);
-          // } else {
-          //   this.router.navigate(['tpcdashboard/menu/tpc-home']);
-          // }
+          if (usr.role == 'PASS') {
+            this.router.navigate(['passenger-dashboard/menu/trains']);
+          } else {
+            this.router.navigate(['tc-dashboard/menu/home']);
+          }
         } else {
           this.authenticationState.next({ uid: null, role: null });
         }

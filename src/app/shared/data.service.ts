@@ -57,4 +57,21 @@ export class DataService {
       params : params
     });
   }
+
+  getPNRDetails(id) {
+    let params = new HttpParams();
+    params = params.append('bookingID', id);
+    const getPNRDetailsURL = this.config.getURL() + 'booking/getBooking';
+    return this.http.get(getPNRDetailsURL, {
+      params: params
+    })
+  }
+
+  occupySeat(bookingID, seats) {
+    const occupySeatURL = this.config.getURL() + 'booking/occupySeats';
+    return this.http.post(occupySeatURL, {
+      bookingID,
+      seats
+    })
+  }
 }

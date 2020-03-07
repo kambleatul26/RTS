@@ -27,12 +27,7 @@ export class PassengerDashboardPage implements OnInit {
       title: 'Trains',
       url: '/passenger-dashboard/menu/trains',
       icon: 'home'
-    },
-    {
-      title: 'trainDetails',
-      url: '/passenger-dashboard/menu/train-details',
-      icon: 'home'
-    },
+    }
   ];
 
   selectedPath = '';

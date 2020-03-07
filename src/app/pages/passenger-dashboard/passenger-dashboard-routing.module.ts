@@ -15,10 +15,6 @@ const routes: Routes = [
       {
         path: 'trains',
         loadChildren: () => import('./trains/trains.module').then( m => m.TrainsPageModule)
-      },
-      {
-        path: 'train-details',
-        loadChildren: () => import('./train-details/train-details.module').then( m => m.TrainDetailsPageModule)
       }
     ]
   },
@@ -26,6 +22,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'menu/home'
   },
+  {
+    path: 'train-details',
+    loadChildren: () => import('./train-details/train-details.module').then( m => m.TrainDetailsPageModule)
+  },
+  {
+    path: 'transfer-ownership',
+    loadChildren: () => import('./transfer-ownership/transfer-ownership.module').then( m => m.TransferOwnershipPageModule)
+  }
 ];
 
 @NgModule({

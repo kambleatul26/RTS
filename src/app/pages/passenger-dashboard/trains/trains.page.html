@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color='dark'>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,20 +9,26 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-list-header>
+    <ion-list-header class="ion-padding">
       Bookings
     </ion-list-header>
 
-    <ion-item *ngFor="let b of bookings" detail>
-      <!-- <ion-avatar slot="start">
-        <img src="./avatar-finn.png">
-      </ion-avatar> -->
-      <ion-icon name='home' slot="start"></ion-icon>
-      <ion-label>
-        <h2>{{ b.PNR }}</h2>
-        <h4>{{ b.trainNo }}</h4>
-        <!-- <p>Listen, I've had a pretty messed up day...</p> -->
-      </ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor="let b of bookings">
+      <ion-item>
+        <ion-icon name="train-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>{{ b.PNR }}</h2>
+          <h4>{{ b.trainNo }}</h4>
+          <!-- <p>Listen, I've had a pretty messed up day...</p> -->
+        </ion-label>
+        <ion-icon name="arrow-back-circle-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="details(b)">OCCUPY</ion-item-option>
+        <ion-item-option color="danger" (click)="transfer(b)">TRANSFER</ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
