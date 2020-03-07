@@ -44,9 +44,8 @@ export class LoginPage implements OnInit {
           if(res['TC'] == true) {
             user.tc = true;
           }
-  
+          console.log(user);
           this.authService.authenticationState.next(user);
-  
           this.storage.set(TOKEN_KEY, user);
           this.router.navigate(['passenger-dashboard']);
         }, 100);

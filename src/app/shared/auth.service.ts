@@ -34,6 +34,7 @@ export class AuthService {
       if (usr) {
         // console.log('Loaded User => ' + usr.uid);
         if (usr) {
+          console.log(usr);
           this.authenticationState.next(usr);
           // // console.log(usr);
           // if (usr.role == 'STUDENT') {
@@ -52,7 +53,7 @@ export class AuthService {
     // console.log(credentials);
     const aadhaarNo = credentials.aadhaar;
     const password = credentials.pass;
-
+    
     const loginURL = this.config.getURL() + 'user/login';
     return this.http.post(loginURL, {
       aadhaarNo,

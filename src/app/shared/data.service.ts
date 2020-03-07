@@ -37,4 +37,14 @@ export class DataService {
 
     await alert.present();
   }
+
+  getTrains() {
+    const XURL = this.config.getURL();
+    return this.http.get(XURL);
+  }
+
+  getBookingsPASS() {
+    const BookingURL = this.config.getURL() + 'booking/getSelfBookings';
+    return this.http.get(BookingURL);
+  }
 }

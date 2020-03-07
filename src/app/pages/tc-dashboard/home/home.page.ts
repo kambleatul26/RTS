@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/shared/data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +10,19 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  constructor(private authService: AuthService, private alertCtrl: AlertController) { }
+  trains;
+  constructor(
+    private authService: AuthService,
+    private alertCtrl: AlertController,
+    private router: Router,
+    private dataService: DataService,
+  ) { }
 
   ngOnInit() {
+    this.dataService.getTrains().subscribe(data => {
+      this.trains = data;
+      console.log(this.trains);
+    });
   }
 
   async logout() {
@@ -34,7 +45,14 @@ export class HomePage implements OnInit {
           }
         ]
       });
-  
+
     await alert.present();
+  }
+
+
+
+  onTrainClick() {
+    console.log('sss');
+    this.router.navigate(['tc-dashboard/menu/train-details']);
   }
 }
