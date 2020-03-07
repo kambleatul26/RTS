@@ -15,13 +15,17 @@ const routes: Routes = [
       {
         path: 'train-details',
         loadChildren: () => import('./train-details/train-details.module').then(m => m.TrainDetailsPageModule)
+      },
+      {
+        path: 'loc-list',
+        loadChildren: () => import('./loc-list/loc-list.module').then(m => m.LocListPageModule)
       }
     ]
   },
   {
     path: '',
     redirectTo: 'menu/home'
-  },
+  }
 
 ];
 

@@ -9,7 +9,7 @@ export class ConfigService {
   env = 'prod';
 
   dev = 'http://7589deef.ngrok.io/';
-  prod = 'https://manassinkar-lf6q.localhost.run/';
+  prod = 'https://manassinkar-bwtm.localhost.run/';
 
   constructor() { }
 

@@ -19,9 +19,11 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataService.presentLoading('Please Wait...');
     this.dataService.getTrains().subscribe(data => {
       this.trains = data;
       console.log(this.trains);
+      this.dataService.loading.dismiss();
     });
   }
 
@@ -53,6 +55,14 @@ export class HomePage implements OnInit {
 
   onTrainClick(trainId) {
     this.router.navigate(['tc-dashboard/menu/train-details'], {
+      queryParams: {
+        trainId
+      }
+    });
+  }
+
+  onLocClick(trainId) {
+    this.router.navigate(['tc-dashboard/menu/loc-list'], {
       queryParams: {
         trainId
       }
