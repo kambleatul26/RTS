@@ -13,17 +13,17 @@
 </ion-header>
 
 
-<ion-content>
-  <ion-searchbar></ion-searchbar>
+<ion-content class="ion-padding">
+  <ion-searchbar (ionChange)="check()" [(ngModel)]='search'></ion-searchbar>
 
-<ion-card *ngFor="let train of trains">
+<ion-card *ngFor="let train of trainsCopy">
   <ion-card-header>
-    <ion-card-title>Name : {{ train.name }} - {{ train.number }}</ion-card-title>
+    <ion-card-title>{{ train.name }} - {{ train.number }}</ion-card-title>
     <ion-card-subtitle>Duration : {{ train.durationMins }} miniutes</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
-    <ion-button color="primary" (click)="onTrainClick(train._id)">Check Passengers</ion-button>
-    <ion-button color="danger">Done</ion-button>
+    <ion-button size='block' color="primary" (click)="onTrainClick(train._id)">Check Passengers</ion-button>
+    <ion-button size='block' color="danger" (click)="onLocClick(train._id)">Update Location</ion-button>
   </ion-card-content>
 </ion-card>
 </ion-content>

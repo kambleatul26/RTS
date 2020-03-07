@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref='passenger-dashboard/menu/trains'></ion-back-button>
     </ion-buttons>
-    <ion-title>train-details</ion-title>
+    <ion-title>{{ this.booking && this.booking.trainNo || defaultTitle }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
   <ion-list>
     <ion-item *ngFor="let s of checked">
       <p>User - {{ s.passenger }}, {{ s.seat }}</p>
-      <ion-checkbox [disabled]='flag && s.age > 18' (ionChange)='check()' [(ngModel)]="s.checked" color="dark" slot="end"></ion-checkbox>
+      <ion-checkbox [disabled]='flag && s.age >= 18 || occupied && s.age >= 18' (ionChange)='check()' [(ngModel)]="s.checked" color="dark" slot="end"></ion-checkbox>
     </ion-item>
   </ion-list>
 

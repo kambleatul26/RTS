@@ -11,11 +11,14 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class TrainDetailsPage implements OnInit {
 
+  defaultTitle = 'Train No.'
+
   id;
   booking;
   checked;
   flag = false;
   limit = 1;
+  occupied = false;
 
   constructor(
     private geoLocation: Geolocation,
@@ -32,11 +35,30 @@ export class TrainDetailsPage implements OnInit {
       this.data.getPNRDetails(this.id)
         .subscribe(res => {
           console.log(res);
-          this.booking = res;
-          this.checked = res['seats'];
-          this.checked.forEach(c => {
-            c.checked = false;
-          });
+          this.booking = res['booking'];
+          this.checked = res['booking']['seats'];
+          let occArray = res['occupiedList'];
+
+          for(let i = 0;i < this.checked.length;i++) {
+            if(occArray[i] == true) {
+              this.occupied = true;
+              this.checked[i].checked = true;
+            }
+          }
+          // occArray.forEach(c => {
+          //   if(c == true) {
+          //     this.occupied = true;
+          //     c.checked = true;
+          //   }
+          // })
+          
+          if(this.occupied) {
+              this.flag = true;
+          } else {
+            this.checked.forEach(c => {
+              c.checked = false;
+            });
+          }
           console.log(this.checked);
         });
     });

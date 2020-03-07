@@ -10,7 +10,11 @@ import { DataService } from 'src/app/shared/data.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  
   trains;
+  trainsCopy;
+  search;
+
   constructor(
     private authService: AuthService,
     private alertCtrl: AlertController,
@@ -19,9 +23,12 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataService.presentLoading('Please Wait...');
     this.dataService.getTrains().subscribe(data => {
       this.trains = data;
+      this.trainsCopy = data;
       console.log(this.trains);
+      this.dataService.loading.dismiss();
     });
   }
 
@@ -49,10 +56,22 @@ export class HomePage implements OnInit {
     await alert.present();
   }
 
-
+  check() {
+    this.trainsCopy = this.trains.filter(t => {
+      return (t.name.includes(this.search) || t.number.toString().includes(this.search));
+    });
+  }
 
   onTrainClick(trainId) {
     this.router.navigate(['tc-dashboard/menu/train-details'], {
+      queryParams: {
+        trainId
+      }
+    });
+  }
+
+  onLocClick(trainId) {
+    this.router.navigate(['tc-dashboard/menu/loc-list'], {
       queryParams: {
         trainId
       }
