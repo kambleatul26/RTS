@@ -11,8 +11,10 @@ export class TrainDetailsPage implements OnInit {
   trainId;
   trainDet;
   coaches;
-
   coachData;
+
+
+  coachColour = 'yellow';
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
@@ -32,5 +34,13 @@ export class TrainDetailsPage implements OnInit {
   onSelectCoach(num) {
     this.coachData = this.coaches.filter(coach => coach.name === num);
     console.log(this.coachData);
+  }
+
+  checkBooked(seat) {
+    if (seat.occupied) {
+      this.coachColour = 'green';
+    } else {
+      this.coachColour = 'yellow';
+    }
   }
 }

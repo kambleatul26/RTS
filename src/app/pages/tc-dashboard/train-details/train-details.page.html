@@ -18,7 +18,7 @@
       <ion-col *ngIf="coachData && coachData[0]" size="8" style="padding:2em">
         <h3>Coach {{ coachData[0].name }}</h3>
           <ion-row>
-            <ion-col size='3' *ngFor="let seat of coachData[0].seats" style="border: 1px solid black;">{{ seat.number }}</ion-col>
+            <ion-col size='3' *ngFor="let seat of coachData[0].seats" style="border: 1px solid black;" [ngStyle]="{'background-color': seat.occupied ? 'green' : 'yellow'}">{{ seat.number }}</ion-col>
           </ion-row>
       </ion-col>
     </ion-row>
