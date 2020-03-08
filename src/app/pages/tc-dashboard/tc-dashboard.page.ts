@@ -20,14 +20,9 @@ export class TCDashboardPage implements OnInit {
   public appPages = [
     {
       title: 'TC Home',
-      url: '',
+      url: '/tc-dashboard/menu/home',
       icon: 'home' 
-    },
-    {
-      title: 'Page 1',
-      url: '',
-      icon: 'home'
-    },
+    }
   ];
 
   selectedPath = '';
