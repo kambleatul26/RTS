@@ -8,8 +8,8 @@ export class ConfigService {
   // env = 'dev';
   env = 'prod';
 
-  dev = 'http://7589deef.ngrok.io/';
-  prod = 'https://manassinkar-wlcp.localhost.run/';
+  dev = 'https://manassinkar-2dks.localhost.run/';
+  prod = 'https://railway-server.herokuapp.com/';
 
   constructor() { }
 
@@ -21,3 +21,8 @@ export class ConfigService {
     }
   }
 }
+
+
+// NOTIFICATIONS AFTER BOOKING PASSENGER OCCUPIES SEAT
+
+// DISPLAY OF DIFFERENT COLORS DEPENDING UPON THE STATUS (PARTLY DONE - see indicators page)

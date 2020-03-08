@@ -92,7 +92,7 @@ export class DataService {
   }
 
   getNotification() {
-    const getNotificationURL = this.config.getURL() + '';
+    const getNotificationURL = this.config.getURL() + 'notification/getNotifications';
     return this.http.get(getNotificationURL);
   }
 }

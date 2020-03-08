@@ -38,7 +38,7 @@ export class AuthService {
           this.authenticationState.next(usr);
           // // console.log(usr);
           if (usr.role == 'PASS') {
-            this.router.navigate(['passenger-dashboard/menu/indicator']);
+            this.router.navigate(['passenger-dashboard/menu/trains']);
           } else {
             this.router.navigate(['tc-dashboard/menu/home']);
           }

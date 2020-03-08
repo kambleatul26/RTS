@@ -1,4 +1,4 @@
-import { filter } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,11 +12,11 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 export class TrainDetailsPage implements OnInit {
 
   defaultTitle = 'Train No.'
+  user;
 
   id;
   booking;
   checked;
-  flag = false;
   limit = 1;
   occupied = false;
 
@@ -24,10 +24,14 @@ export class TrainDetailsPage implements OnInit {
 
   constructor(
     private geoLocation: Geolocation,
+    private auth: AuthService,
     private data: DataService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
+
+    this.user = this.auth.isAuthenticated();
+    console.log(this.user);
 
     this.activatedRoute.queryParamMap.subscribe(params => {
       console.log(params);
@@ -43,25 +47,11 @@ export class TrainDetailsPage implements OnInit {
 
           for(let i = 0;i < this.checked.length;i++) {
             if(occArray[i] == true) {
-              this.occupied = true;
               this.checked[i].checked = true;
+              this.occupied = true;
             }
           }
-          // occArray.forEach(c => {
-          //   if(c == true) {
-          //     this.occupied = true;
-          //     c.checked = true;
-          //   }
-          // })
-          
-          if(this.occupied) {
-              this.flag = true;
-          } else {
-            this.checked.forEach(c => {
-              c.checked = false;
-            });
-          }
-          console.log(this.checked);
+          console.log(this.occupied);
         });
     });
 
@@ -70,6 +60,10 @@ export class TrainDetailsPage implements OnInit {
       // resp.coords.longitude
       console.log(resp);
       this.loc = resp;
+      this.loc = {
+        latitude: resp.coords.latitude,
+        longitude: resp.coords.longitude
+      }
       // this.data.presentAlert('Location', resp.coords.latitude + ', ' + resp.coords.longitude);
      }).catch((error) => {
        console.log('Error getting location', error);
@@ -77,24 +71,9 @@ export class TrainDetailsPage implements OnInit {
   }
 
   reset() {
-    this.checked.forEach(c => {
-      c.checked = false;
-    });
-    this.check();
   }
 
   check() {
-    let count = 0;
-    this.checked.forEach(c => {
-      if(c.checked == true) {
-        count = count + 1;
-      }
-    });
-    if(count >= 1) {
-      this.flag = true;
-    } else {
-      this.flag = false;
-    }
   } 
 
   submit() {
