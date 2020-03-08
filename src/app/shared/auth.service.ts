@@ -74,4 +74,9 @@ export class AuthService {
   isAuthenticated() {
     return this.authenticationState.value;
   }
+
+  getUser() {
+    const USER_URL = this.config.getURL() + 'user/viewProfile';
+    return this.http.get(USER_URL);
+  }
 }

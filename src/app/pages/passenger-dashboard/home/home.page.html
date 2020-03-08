@@ -11,7 +11,45 @@
     <ion-title>PASSENGER</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content class="ion-padding">
-  <h2>PROFILE</h2>
+<br>
+<ion-content *ngIf="user" class="ion-padding ion-text-center">
+  <h4>PROFILE</h4>
+  <ion-icon name="person-circle-outline" style="font-size: 75px;"></ion-icon>
+  <h3 style="font-weight: bold;text-transform: uppercase;">{{ user.firstName }} {{ user.lastName }}</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <p>Aadhar Number :</p> 
+      </ion-col>
+      <ion-col>
+        <p>{{ user.aadhaarNo }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>IRCTC ID :</p> 
+      </ion-col>
+      <ion-col>
+        <p>{{ user.irctcID }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>Email : </p>
+      </ion-col>
+      <ion-col>
+        <p>{{ user.email }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>Contact Number :</p> 
+      </ion-col>
+      <ion-col>
+        <p>{{ user.contactNo }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <ion-button color="danger" (click)="logout()">Logout</ion-button>
 </ion-content>

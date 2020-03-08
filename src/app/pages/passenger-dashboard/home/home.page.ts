@@ -8,34 +8,38 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+  user;
   constructor(private authService: AuthService, private alertCtrl: AlertController) { }
 
   ngOnInit() {
+    this.authService.getUser().subscribe(data => {
+      this.user = data;
+      console.log(this.user);
+    });
   }
 
   async logout() {
     const alert = await this.alertCtrl.create({
-        header: 'Logout',
-        message: 'Do You Want To Logout?',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'Cancel',
-            handler: () => {
+      header: 'Logout',
+      message: 'Do You Want To Logout?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'Cancel',
+          handler: () => {
 
-            }
-          }, {
-            text: 'OK',
-            role: 'OK',
-            handler: () => {
-              this.authService.logout()
-            }
           }
-        ]
-      });
-  
+        }, {
+          text: 'OK',
+          role: 'OK',
+          handler: () => {
+            this.authService.logout()
+          }
+        }
+      ]
+    });
     await alert.present();
   }
+
 
 }
