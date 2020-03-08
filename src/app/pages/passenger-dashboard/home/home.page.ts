@@ -9,13 +9,27 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
   user;
-  constructor(private authService: AuthService, private alertCtrl: AlertController) { }
+  constructor(private authService: AuthService, private alertCtrl: AlertController) {
+    this.getUser();
+  }
 
   ngOnInit() {
+  }
+
+  getUser() {
     this.authService.getUser().subscribe(data => {
       this.user = data;
       console.log(this.user);
     });
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+    this.getUser();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
   }
 
   async logout() {

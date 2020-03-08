@@ -16,6 +16,14 @@
 </ion-header>
 <br>
 <ion-content *ngIf="user" class="ion-padding ion-text-center">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <h4>PROFILE</h4>
   <ion-icon name="person-circle-outline" style="font-size: 75px;"></ion-icon>
   <h3 style="font-weight: bold;text-transform: uppercase;">{{ user.firstName }} {{ user.lastName }}</h3>

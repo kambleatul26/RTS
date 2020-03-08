@@ -9,7 +9,16 @@
 
 <ion-content class="ion-padding">
 
-  <h2>Name : {{user.firstName}} {{user.firstName}}</h2>
+  <ion-list-header *ngIf="user">
+    <ion-label>Name : {{user.firstName}} {{user.lastName}}</ion-label>
+  </ion-list-header>
+
+  <ion-list-header *ngIf="user">
+    <ion-label>Aadhaar : {{ user.aadhaarNo }}</ion-label>
+  </ion-list-header>
+
+  <!-- <h2 class="ion-text-center" *ngIf="user">Name : {{user.firstName}} {{user.lastName}}</h2>
+  <h2 class="ion-text-center" *ngIf="user">AADHAAR NO : {{ user.aadhaarNo }}</h2> -->
 
   <h2 class="ion-text-center">{{ status }}</h2>
 

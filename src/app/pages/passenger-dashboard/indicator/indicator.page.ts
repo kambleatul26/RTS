@@ -9,7 +9,7 @@ import { DataService } from 'src/app/shared/data.service';
 })
 export class IndicatorPage implements OnInit {
 
-  status = 'NONE';
+  status;
   user;
   constructor(
     private authService: AuthService,
@@ -21,7 +21,13 @@ export class IndicatorPage implements OnInit {
     this.authService.getUser().subscribe(data => {
       this.user = data;
       console.log(this.user);
-      this.status = this.user.status;
+      let val = this.user.occupied;
+      console.log(val);
+      if(val) {
+        this.status = 'CNF'
+      } else {
+        this.status = 'NONE'
+      }
       this.dataService.loading.dismiss();
     }, err => {
       this.dataService.loading.dismiss();
