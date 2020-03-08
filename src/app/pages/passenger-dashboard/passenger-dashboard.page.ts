@@ -27,6 +27,16 @@ export class PassengerDashboardPage implements OnInit {
       title: 'Trains',
       url: '/passenger-dashboard/menu/trains',
       icon: 'home'
+    },
+    {
+      title: 'Notifications',
+      url: '/passenger-dashboard/menu/notifications',
+      icon: 'home'
+    },
+    {
+      title: 'Occupy Status',
+      url: '/passenger-dashboard/menu/indicator',
+      icon: 'home'
     }
   ];
 

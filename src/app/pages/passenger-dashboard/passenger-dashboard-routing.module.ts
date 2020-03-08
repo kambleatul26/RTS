@@ -15,6 +15,14 @@ const routes: Routes = [
       {
         path: 'trains',
         loadChildren: () => import('./trains/trains.module').then( m => m.TrainsPageModule)
+      },
+      {
+        path: 'notifications',
+        loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+      },
+      {
+        path: 'indicator',
+        loadChildren: () => import('./indicator/indicator.module').then( m => m.IndicatorPageModule)
       }
     ]
   },

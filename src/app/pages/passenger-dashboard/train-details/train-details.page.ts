@@ -20,6 +20,8 @@ export class TrainDetailsPage implements OnInit {
   limit = 1;
   occupied = false;
 
+  loc;
+
   constructor(
     private geoLocation: Geolocation,
     private data: DataService,
@@ -63,14 +65,15 @@ export class TrainDetailsPage implements OnInit {
         });
     });
 
-    // this.geoLocation.getCurrentPosition().then(resp => {
-    //   // resp.coords.latitude
-    //   // resp.coords.longitude
-    //   console.log(resp);
-    //   this.data.presentAlert('Location', resp.coords.latitude + ', ' + resp.coords.longitude);
-    //  }).catch((error) => {
-    //    console.log('Error getting location', error);
-    //  });
+    this.geoLocation.getCurrentPosition().then(resp => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+      console.log(resp);
+      this.loc = resp;
+      // this.data.presentAlert('Location', resp.coords.latitude + ', ' + resp.coords.longitude);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
   reset() {
@@ -101,7 +104,7 @@ export class TrainDetailsPage implements OnInit {
 
     console.log(array);
 
-    this.data.occupySeat(this.id, array)
+    this.data.occupySeat(this.id, array, this.loc)
       .subscribe(res => {
         console.log(res);
         this.router.navigate(['passenger-dashboard/menu/trains']);

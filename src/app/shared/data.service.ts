@@ -67,11 +67,20 @@ export class DataService {
     })
   }
 
-  occupySeat(bookingID, seats) {
+  occupySeat(bookingID, seats, location) {
     const occupySeatURL = this.config.getURL() + 'booking/occupySeats';
     return this.http.post(occupySeatURL, {
       bookingID,
-      seats
+      seats,
+      location
+    })
+  }
+
+  transferOwnership(bookingID, aadhaarNo) {
+    const transferURL = this.config.getURL() + 'booking/transferOwnership';
+    return this.http.post(transferURL, {
+      bookingID,
+      aadhaarNo
     })
   }
 
@@ -80,5 +89,10 @@ export class DataService {
     this.http.post(updateURL, body).subscribe(data => {
       console.log(data);
     });
+  }
+
+  getNotification() {
+    const getNotificationURL = this.config.getURL() + '';
+    return this.http.get(getNotificationURL);
   }
 }

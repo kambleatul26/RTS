@@ -7,6 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-item class="ion-padding-bottom">
+    <ion-label>Co-Travellers</ion-label>
+    <ion-select [(ngModel)]='selected'>
+      <ion-select-option *ngFor="let c of co_passengers" [value]="c">{{ c }}</ion-select-option>
+    </ion-select>
+  </ion-item>
 
+  <ion-button (click)="change()" size='block'>Transfer</ion-button>
 </ion-content>

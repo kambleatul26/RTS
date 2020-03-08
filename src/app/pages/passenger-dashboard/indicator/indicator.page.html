@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>OCCUPY STATUS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2 class="ion-text-center">{{ status }}</h2>
+
+  <div id='one' 
+  [ngClass]="{
+    'cnf':status === 'CNF',
+    'wl':status === 'WL',
+    'default':status === 'NONE'
+  }" ></div>
+  <div id='two'></div>
+</ion-content>
