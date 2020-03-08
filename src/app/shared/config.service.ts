@@ -9,8 +9,8 @@ export class ConfigService {
   env = 'prod';
 
   dev = 'http://7589deef.ngrok.io/';
-  prod = 'https://manassinkar-wlcp.localhost.run/';
-
+  // prod = 'https://manassinkar-k5zm.localhost.run/';
+  prod = 'https://railway-server.herokuapp.com/';
   constructor() { }
 
   getURL() {
