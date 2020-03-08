@@ -8,7 +8,8 @@ export class ConfigService {
   // env = 'dev';
   env = 'prod';
 
-  dev = 'https://manassinkar-2dks.localhost.run/';
+  dev = 'https://manassinkar-ulde.localhost.run/';
+  //prod = 'https://manassinkar-ibpl.localhost.run/';
   prod = 'https://railway-server.herokuapp.com/';
 
   constructor() { }
